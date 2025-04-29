@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="word_send">Отправить</string>
+    <string name="label_asterisk_optional">*необязательно</string>
+    <string name="status_late_suffix">(о)</string>
+    <string name="status_missed_suffix">(н)</string>
+    <string name="status_reasonable_suffix">(у)</string>
+    <string name="send_option_late_as_miss">Засчитать опоздания как пропуски</string>
+    <string name="status_visited_filter">Присутствуют</string>
+    <string name="status_late_filter">Опоздали</string>
+    <string name="status_reasonable_filter">По уважительной</string>
+    <string name="status_missed_filter">Отсутствуют</string>
+    <string name="send_format_inline">В строчку, через запятую</string>
+    <string name="send_format_listed">В стоблик, списком</string>
+    <string name="send_option_filters">Фильтры</string>
+    <string name="send_option_format">Формат</string>
+    <string name="status_visited_suffix">(б)</string>
+    <string name="status_visited_list">+</string>
+    <string name="status_late_stud_list">о.</string>
+    <string name="status_missed_stud_list">н/б</string>
+    <string name="status_reasonable_stud_list">ув.</string>
+    <string name="send_option_always_mark_missed">Всегда помечать пропуски</string>
+    <string name="status_visited_change_dialog">Присутствует</string>
+    <string name="status_late_change">Опаздывает</string>
+    <string name="status_missed_change_dialog">Неизвестно</string>
+    <string name="status_reasonable_change_dialog">Отсутствует (ув.)</string>
+    <string name="change_status_title">Где сейчас {student}?</string>
+    <string name="send_option_other">Прочее</string>
+    <string name="send_page_title">Отправить справку</string>
+    <string name="send_preview_typing">печатает...</string>
+    <string name="main_more_reset_marks">Сбросить отметки</string>
+    <string name="main_more_edit_list">Редактировать список</string>
+    <string name="button_cancel">Отмена</string>
+    <string name="button_change">Изменить</string>
+    <string name="send_leading_text">Подпись...</string>
+    <string name="edit_list_title">Редактирование списка</string>
+    <string name="empty_list_headline">Добрый день!</string>
+    <string name="empty_list_supporting_text">Добавьте студентов в список, чтобы контролировать посещаемость</string>
+    <string name="empty_list_button_edit_manually">Вручную</string>
+    <string name="stat_res_alert_title">Сбросить изменения статусов?</string>
+    <string name="stat_res_alert_text">Статус всех студентов будет сброшен до \'Посетивший(ая)\' для предотвращения конфликтов параметров после переписывания списка группы</string>
+    <string name="button_continue">Продолжить</string>
+</resources>

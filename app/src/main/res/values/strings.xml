@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name" translatable="false">Group Check</string>
+    <string name="word_send">Send</string>
+    <string name="label_asterisk_optional">*optional</string>
+    <string name="status_late_suffix">(l)</string>
+    <string name="status_missed_suffix">(m)</string>
+    <string name="status_reasonable_suffix">(r)</string>
+    <string name="send_option_late_as_miss">Take lateness as miss</string>
+    <string name="status_visited_filter">Visited</string>
+    <string name="status_late_filter">Late</string>
+    <string name="status_reasonable_filter">Reasonable</string>
+    <string name="status_missed_filter">Missed</string>
+    <string name="send_format_inline">Inline, through comma</string>
+    <string name="send_format_listed">In column, listed</string>
+    <string name="send_option_filters">Filters</string>
+    <string name="send_option_format">Format</string>
+    <string name="status_visited_suffix">(v)</string>
+    <string name="status_visited_list">Here</string>
+    <string name="status_late_stud_list">Late</string>
+    <string name="status_missed_stud_list">Miss</string>
+    <string name="status_reasonable_stud_list">Pass</string>
+    <string name="send_option_always_mark_missed">Always mark misses</string>
+    <string name="status_visited_change_dialog">Staying here</string>
+    <string name="status_late_change">Going late</string>
+    <string name="status_missed_change_dialog">Unknown</string>
+    <string name="status_reasonable_change_dialog">Missing (ok)</string>
+    <string name="change_status_title">Where\'s {student}?</string>
+    <string name="send_option_other">Other</string>
+    <string name="send_page_title">Share group check</string>
+    <string name="send_preview_typing">typing...</string>
+    <string name="main_more_reset_marks">Reset all marks</string>
+    <string name="main_more_edit_list">Edit group list</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_change">Change</string>
+    <string name="send_leading_text">Leading text...</string>
+    <string name="edit_list_title">Group list editing</string>
+    <string name="empty_list_headline">Welcome!</string>
+    <string name="empty_list_supporting_text">Add students to observer attendance</string>
+    <string name="empty_list_button_edit_manually">Manually</string>
+    <string name="stat_res_alert_title">Reset changed statuses?</string>
+    <string name="stat_res_alert_text">All changed statuses will be reset to \'VISITED\' to prevent configuration conflicts after rewriting group list</string>
+    <string name="button_continue">Continue</string>
+</resources>

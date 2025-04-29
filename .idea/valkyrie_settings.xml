@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Valkyrie.Settings">
+    <option name="iconPackDestination" value="C:\Users\timsh\AndroidStudioProjects\GroupCheck\app\src\main\java\ru\timsh\groupcheck\ui\icons" />
+    <option name="iconPackName" value="AppIcons" />
+    <option name="iconPackPackage" value="ru.timsh.groupcheck.ui.icons" />
+    <option name="mode" value="IconPack" />
+    <option name="nestedPacks" value="Rounded,XRounded" />
+    <option name="outputFormat" value="backing_property" />
+    <option name="packageName" value="ru.timsh.groupcheck.ui.icons" />
+  </component>
+</project>

@@ -2,8 +2,8 @@
 <resources>
 
     <style name="Theme.App.Starting" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">#202020</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/how_to_reg_128dp_ffffff_fill1_wght400_grad0_opsz48</item>
+        <item name="windowSplashScreenBackground">@color/splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
         <item name="postSplashScreenTheme">@style/Theme.GroupCheck</item>
     </style>
 

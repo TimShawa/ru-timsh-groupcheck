@@ -8,6 +8,7 @@ import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavHostController
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import ru.timsh.groupcheck.ui.themes.Themes
 import ru.timsh.groupcheck.ui.themes.apptheme.AppTheme
@@ -24,3 +25,11 @@ fun App() {
 
 @Composable
 expect fun getSizeClass(): WindowWidthSizeClass
+
+
+class AppViewModel: ViewModel() {
+    var navController: NavHostController? = null
+}
+
+
+val appVM = AppViewModel()

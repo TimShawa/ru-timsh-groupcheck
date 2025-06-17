@@ -7,9 +7,9 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
-    alias(libs.plugins.kotlinSerialization)
 }
 
 kotlin {
@@ -54,6 +54,11 @@ kotlin {
             implementation(libs.material3.adaptive)
             implementation(libs.material3.adaptive.layout)
             implementation(libs.material3.adaptive.navigation)
+            implementation(libs.kotlinx.serialization.json)
+            implementation(libs.compose.navigation)
+
+            implementation(libs.room.runtime)
+            implementation(libs.sqlite.bundled)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -91,6 +96,11 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+    ksp(libs.room.compiler)
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 compose.desktop {

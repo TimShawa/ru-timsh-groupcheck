@@ -1,13 +1,18 @@
 package ru.timsh.groupcheck.database
+
 import androidx.room.Room
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 import platform.Foundation.NSHomeDirectory
 
-fun getJournalDatabase(): JournalDatabase {
+
+actual var journalDB: JournalDB? = getJournalDB()
+
+
+fun getJournalDB(): JournalDB {
     val dbFile = NSHomeDirectory() + "/journal.db"
-    return Room.databaseBuilder<JournalDatabase>(
+    return Room.databaseBuilder<JournalDB>(
         name = dbFile,
-        factory = { JournalDatabase::class.instantiateImpl() }
+        factory = { JournalDB::class.instantiateImpl() }
     )
         .setDriver(BundledSQLiteDriver())
         .build()

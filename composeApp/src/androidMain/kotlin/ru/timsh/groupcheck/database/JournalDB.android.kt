@@ -5,11 +5,14 @@ import androidx.room.Room
 import androidx.sqlite.driver.bundled.BundledSQLiteDriver
 
 
-fun getJournalDatabase(context: Context): JournalDatabase {
-    val dbFile = context.getDatabasePath("journal.db")
-    return Room.databaseBuilder<JournalDatabase>(
+actual var journalDB: JournalDB? = null
+
+
+fun getJournalDB(context: Context): JournalDB {
+    val dbPath = context.getDatabasePath("journal.db")
+    return Room.databaseBuilder<JournalDB>(
         context = context.applicationContext,
-        name = dbFile.absolutePath,
+        name = dbPath.absolutePath
     )
         .setDriver(BundledSQLiteDriver())
         .build()

@@ -31,10 +31,7 @@ kotlin {
         }
     }
     
-    jvm("desktop")
-    
     sourceSets {
-        val desktopMain by getting
         
         androidMain.dependencies {
             implementation(compose.preview)
@@ -60,10 +57,6 @@ kotlin {
             implementation(libs.room.runtime)
             implementation(libs.sqlite.bundled)
         }
-        desktopMain.dependencies {
-            implementation(compose.desktop.currentOs)
-            implementation(libs.kotlinx.coroutines.swing)
-        }
     }
 }
 
@@ -86,6 +79,7 @@ android {
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -101,16 +95,4 @@ dependencies {
 
 room {
     schemaDirectory("$projectDir/schemas")
-}
-
-compose.desktop {
-    application {
-        mainClass = "ru.timsh.groupcheck.MainKt"
-
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "ru.timsh.groupcheck"
-            packageVersion = "1.0.0"
-        }
-    }
 }

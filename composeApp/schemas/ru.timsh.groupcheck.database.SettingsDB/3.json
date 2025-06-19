@@ -1,0 +1,51 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 3,
+    "identityHash": "a66a2251d3f790f672042a051059ce33",
+    "entities": [
+      {
+        "tableName": "settings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`setting` TEXT NOT NULL, `value_int` INTEGER, `value_real` REAL, `value_text` TEXT, `value_blob` BLOB, PRIMARY KEY(`setting`))",
+        "fields": [
+          {
+            "fieldPath": "setting",
+            "columnName": "setting",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valueInt",
+            "columnName": "value_int",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "valueReal",
+            "columnName": "value_real",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "valueText",
+            "columnName": "value_text",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "valueBlob",
+            "columnName": "value_blob",
+            "affinity": "BLOB"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "setting"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a66a2251d3f790f672042a051059ce33')"
+    ]
+  }
+}

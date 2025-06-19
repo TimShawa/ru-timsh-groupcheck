@@ -1,0 +1,68 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "4bcded3a304997b535254d781a705238",
+    "entities": [
+      {
+        "tableName": "settings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`setting` TEXT NOT NULL, `default_value` TEXT NOT NULL, `changeable` INTEGER NOT NULL, `value` TEXT, `value_int` INTEGER, `value_real` REAL, `value_text` TEXT, `value_blob` BLOB, PRIMARY KEY(`setting`))",
+        "fields": [
+          {
+            "fieldPath": "setting",
+            "columnName": "setting",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "defaultValue",
+            "columnName": "default_value",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "changeable",
+            "columnName": "changeable",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "valueInt",
+            "columnName": "value_int",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "valueReal",
+            "columnName": "value_real",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "valueText",
+            "columnName": "value_text",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "valueBlob",
+            "columnName": "value_blob",
+            "affinity": "BLOB"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "setting"
+          ]
+        }
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '4bcded3a304997b535254d781a705238')"
+    ]
+  }
+}

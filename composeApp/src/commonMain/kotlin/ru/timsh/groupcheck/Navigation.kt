@@ -2,6 +2,9 @@ package ru.timsh.groupcheck
 
 
 import androidx.compose.animation.AnimatedContentScope
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.compose.NavHost
@@ -10,7 +13,7 @@ import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
 import kotlinx.serialization.Serializable
 
-
+@Serializable
 object Nav {
 
     @Serializable object Today
@@ -43,30 +46,51 @@ fun Navigation(
 ) {
     appVM.navController = rememberNavController()
     NavHost(
-        navController = appVM.navController ?: rememberNavController(),
-        startDestination = Nav.Today
+        navController = appVM.navController!!,
+        startDestination = "today"
     ) {
-        navigation<Nav.Today>(
-            startDestination = Nav.TodayScreen
-        ) {
-            composable<Nav.TodayScreen>(
-                content = todayScreenContent
-            )
-            composable<Nav.SubjectScreen>(
-                content = subjectScreenContent
-            )
-            composable<Nav.MessageScreen>(
-                content = messageScreenContent
-            )
-        }
-        composable<Nav.History>(
-            content = historyContent
+        composable(
+            route = "today",
+            content = todayScreenContent,
+            enterTransition = {
+                fadeIn(tween(50))
+            },
+            exitTransition = {
+                fadeOut(tween(50))
+            }
         )
-        composable<Nav.Group>(
-            content = groupContent
+        composable(
+            route = "settings",
+            content = settingsContent,
+            enterTransition = {
+                fadeIn(tween(50))
+            },
+            exitTransition = {
+                fadeOut(tween(50))
+            }
         )
-        composable<Nav.Settings>(
-            content = settingsContent
-        )
+
+//        navigation<Nav.Today>(
+//            startDestination = Nav.TodayScreen
+//        ) {
+//            composable<Nav.TodayScreen>(
+//                content = todayScreenContent
+//            )
+//            composable<Nav.SubjectScreen>(
+//                content = subjectScreenContent
+//            )
+//            composable<Nav.MessageScreen>(
+//                content = messageScreenContent
+//            )
+//        }
+//        composable<Nav.History>(
+//            content = historyContent
+//        )
+//        composable<Nav.Group>(
+//            content = groupContent
+//        )
+//        composable<Nav.Settings>(
+//            content = settingsContent
+//        )
     }
 }

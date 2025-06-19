@@ -51,6 +51,7 @@ import androidx.compose.material3.rememberDrawerState
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -127,11 +128,27 @@ fun MainScreen(sizeClass: WindowWidthSizeClass) {
 
 @Composable
 fun CompactPage(innerPadding: PaddingValues) {
-    DateSubjectsScreen(
-        modifier = Modifier
-            .padding(innerPadding)
-            .consumeWindowInsets(innerPadding)
+    Navigation(
+        todayScreenContent = {
+            DateSubjectsScreen(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .consumeWindowInsets(innerPadding)
+            )
+        },
+        settingsContent = {
+            SettingsScreen(
+                modifier = Modifier
+                    .padding(innerPadding)
+                    .consumeWindowInsets(innerPadding)
+            )
+        }
     )
+//    DateSubjectsScreen(
+//        modifier = Modifier
+//            .padding(innerPadding)
+//            .consumeWindowInsets(innerPadding)
+//    )
 }
 
 
@@ -266,24 +283,40 @@ fun MainScreenSideBar() {
             }
         }
     ) {
+        // Main
         NavRailItem(
-            selected = true,
-            onClick = {},
+            selected = mainPageVM.currentTab == 0,
+            onClick = {
+                mainPageVM.currentTab = 1
+                appVM.navController!!.navigate("today")
+            },
             data = NavBarItemData(AppIcons.TodayFILL, AppIcons.Today, "Today")
         )
+        // IDK
         NavRailItem(
-            selected = false,
-            onClick = {},
+            selected = mainPageVM.currentTab == 1,
+            onClick = {
+                mainPageVM.currentTab = 1
+//                appVM.navController!!.navigate(Nav.History)
+            },
             data = NavBarItemData(AppIcons.History, AppIcons.History, "History")
         )
+        // IDK
         NavRailItem(
-            selected = false,
-            onClick = {},
+            selected = mainPageVM.currentTab == 2,
+            onClick = {
+                mainPageVM.currentTab = 2
+//                appVM.navController!!.navigate(Nav.Group)
+            },
             data = NavBarItemData(AppIcons.GroupsFill, AppIcons.Groups, "Group")
         )
+        // Settings
         NavRailItem(
-            selected = false,
-            onClick = {},
+            selected = mainPageVM.currentTab == 3,
+            onClick = {
+                mainPageVM.currentTab = 3
+                appVM.navController!!.navigate("settings")
+            },
             data = NavBarItemData(AppIcons.SettingsFILL, AppIcons.Settings, "Settings")
         )
     }
@@ -296,7 +329,10 @@ fun MainScreenNavBar() {
         var selectedTab by remember { mutableStateOf(0) }
         NavBarItem(
             selected = selectedTab == 0,
-            onClick = { selectedTab = 0 },
+            onClick = {
+                selectedTab = 0
+                appVM.navController!!.navigate("today")
+            },
             data = NavBarItemData(
                 iconSelected = AppIcons.TodayFILL,
                 iconUnselected = AppIcons.Today,
@@ -323,7 +359,10 @@ fun MainScreenNavBar() {
         )
         NavBarItem(
             selected = selectedTab == 3,
-            onClick = { selectedTab = 3 },
+            onClick = {
+                selectedTab = 3
+                appVM.navController!!.navigate("settings")
+            },
             data = NavBarItemData(
                 iconSelected = AppIcons.SettingsFILL,
                 iconUnselected = AppIcons.Settings,
@@ -470,28 +509,41 @@ fun MainScreenMediumDrawer(
                             Icon(AppIcons.Menu, null)
                         }
                     }
-
+                    val currentTab: Int = mainPageVM.currentTab
                     NavigationDrawerItem(
-                        selected = true,
-                        onClick = {},
+                        selected = currentTab == 0,
+                        onClick = {
+                            mainPageVM.currentTab = 1
+                            appVM.navController!!.navigate("today")
+                        },
                         label = { Text("Today") },
                         icon = { Icon(AppIcons.Today, null) }
                     )
                     NavigationDrawerItem(
-                        selected = false,
-                        onClick = {},
+                        selected = currentTab == 1,
+                        onClick = {
+                            mainPageVM.currentTab = 1
+//                            appVM.navController!!.navigate(Nav.History)
+                        },
                         label = { Text("History") },
                         icon = { Icon(AppIcons.History, null) }
                     )
                     NavigationDrawerItem(
-                        selected = false,
-                        onClick = {},
+                        selected = currentTab == 2,
+                        onClick = {
+                            mainPageVM.currentTab = 2
+//                            appVM.navController!!.navigate(Nav.Group)
+                        },
                         label = { Text("Group") },
                         icon = { Icon(AppIcons.Groups, null) }
                     )
                     NavigationDrawerItem(
-                        selected = false,
-                        onClick = {},
+                        selected = currentTab == 3,
+                        onClick = {
+                            mainPageVM.currentTab = 3
+                            appVM.navController!!.navigate("settings")
+                            //"Корпус-Инвалид" — корабль с 3 слотами под системы, но каждый бой 1 случайный слот отказывает (нужно выбирать, что чинить в первую очередь).
+                        },
                         label = { Text("Settings") },
                         icon = { Icon(AppIcons.Settings, null) }
                     )
@@ -593,6 +645,7 @@ fun MainScreenExpandedDrawer(
 
 class MainPageViewModel: ViewModel() {
     var drawerState: DrawerState? = null
+    var currentTab: Int by mutableIntStateOf(0)
 }
 
 
